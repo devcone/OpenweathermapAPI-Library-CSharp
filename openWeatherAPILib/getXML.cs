@@ -34,6 +34,18 @@ namespace openWeatherAPILib
         public static List<string> getDataFromXML(XmlDocument weatherXML)
         {
 
+            List<string> organisedData = new List<string>;
+            string[] dataToRetrieve = { "//temperature", "//feels_like" , "//humidity", "//pressure", "//clouds", "//visibility", "//precipitation", "//weather" };
+
+            foreach (string item in dataToRetrieve)
+            {
+                XmlNode XMLnode = weatherXML.SelectSingleNode(item);
+                XmlAttribute itemValue = XMLnode.Attributes["value"];
+                string valueString = itemValue.Value;
+                organisedData.Add(valueString);
+            }
+            return organisedData;
+            
         }
     }
 }

@@ -7,17 +7,31 @@ using System.Xml;
 
 namespace openWeatherAPILib
 {
-    public class main
+    public partial class main
     {
+        public string currentTemperature { get; }
+
         public static string startRequest(string apiKey, string locationName)
         {
             // Building the query URL and obtaining the SQL document from the API
             string queryURL = getXML.buildRequest(apiKey, locationName);
             XmlDocument weatherDataXML = getXML.requestXMLDoc(queryURL);
 
+            // Filtering the data from the XML file
+            List<string> weatherData = getXML.getDataFromXML(weatherDataXML);
+
+            // Setting the variables
+            string currentTemperature = weatherData[0];
+            string feelsLikeTemperature = weatherData[1];
+            string humidity = weatherData[2];
+            string pressure = weatherData[3];
+            string clouds = weatherData[4];
+            string visibility = weatherData[5];
+            string precipitation = weatherData[6];
+            string weather = weatherData[7];
+
             return queryURL;
         }
-
 
 
     }

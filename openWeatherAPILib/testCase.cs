@@ -8,6 +8,6 @@ namespace openWeatherAPILib
 {
     class testCase
     {
-        string hi = main.startRequest();
+        string hi = main.startRequest("API_KEY", "LOCATION_NAME");
     }
 }

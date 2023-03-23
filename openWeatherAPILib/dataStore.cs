@@ -8,7 +8,15 @@ namespace openWeatherAPILib
 {
     public class dataStore
     {
+        // Setting the variables
+        public string currentTemperature;
+        public string weatherDescription;
 
+        public dataStore(string currentTemperature, string weatherDescription)
+        {
+            this.currentTemperature = currentTemperature;
+            this.weatherDescription = weatherDescription;
+        }
 
     }
 }

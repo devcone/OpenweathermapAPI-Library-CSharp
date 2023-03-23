@@ -8,6 +8,8 @@ namespace openWeatherAPILib
 {
     class testCase
     {
-        string hi = main.startRequest("API_KEY", "LOCATION_NAME");
+        readonly openWeatherAPILib.dataStore weatherData = openWeatherAPILib.main.startRequest("", "");
+        string hello = weatherData.currentTemperature.ToString();
+   
     }
 }
